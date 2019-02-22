@@ -1,3 +1,3 @@
 # Neural-Machine-Translation
 
-This is an Encoder-Decoder model with attention mechanism.
+This is a simple neural machine tranlation model. 
