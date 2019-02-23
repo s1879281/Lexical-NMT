@@ -53,6 +53,7 @@ def draw(en_length, jp_length):
     axHisty.hist(jp_length, bins=100, orientation='horizontal')
 
     plt.draw()
+    plt.savefig('Q2.pdf')
     plt.show()
 
 if __name__ == '__main__':
