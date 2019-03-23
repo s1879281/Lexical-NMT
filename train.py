@@ -120,15 +120,6 @@ def main(args):
             if len(sample) == 0:
                 continue
             model.train()
-            '''
-            ___QUESTION-1-DESCRIBE-F-START___
-            Describe what the following lines of code do.
-            '''
-            # The first line of this part is to apply forward propagation to the inputs and compute the outputs of this seq2seq model.
-            # The criterion() function is to measure the cross-entropy loss by the model outputs and the ground truths of translation.
-            # The backward() method is to implement back propagation and compute the gradients of the parameters.
-            # The clip_grad_norm_() function is to normalize the gradients and clip them into a specific range.
-            # The parameters are updated using the Adam algorithm, and the gradients are then set to zero.
             output, _ = model(sample['src_tokens'], sample['src_lengths'], sample['tgt_inputs'])
             loss = \
                 criterion(output.view(-1, output.size(-1)), sample['tgt_tokens'].view(-1)) / len(sample['src_lengths'])
@@ -136,7 +127,6 @@ def main(args):
             grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), args.clip_norm)
             optimizer.step()
             optimizer.zero_grad()
-            '''___QUESTION-1-DESCRIBE-F-END___'''
 
             # Update statistics for progress bar
             total_loss, num_tokens, batch_size = loss.item(), sample['num_tokens'], len(sample['src_tokens'])
