@@ -26,13 +26,13 @@ prepared data containing the pre-processed data your models will be trained on, 
  restored from the best checkpoint file and saves the output to *model_translations.txt*.
 * *visualize.py* generates heat-maps from the decoder-to-encoder attention weights for the first 10 sentence pairs in the test-set.
 
-** Lexical Model
+## Lexical Model
 Train the translation model after augmenting it with the lexical model by running the following command:
 ```
 python train.py --decoder-use-lexical-model True
 ```
 
-** Evaluation
+## Evaluation
 Use the following command to calculate the test-BLEU score:
 ```
 python translate.py
